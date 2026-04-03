@@ -1,0 +1,284 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "V-2001",
+      "name": "Apex Cloud Services",
+      "category": "Cloud Infrastructure",
+      "tier": "Tier 1",
+      "risk_level": "HIGH",
+      "last_reviewed": "2024-09-15",
+      "data_residency": "Multi-region (US, EU, CA)",
+      "soc2": {
+        "report_date": "2024-08-01",
+        "type": "Type II",
+        "auditor": "Deloitte",
+        "period": "Jan 2024 - Jul 2024",
+        "trust_principles": ["Security", "Availability", "Confidentiality"],
+        "exceptions": [
+          "Control CC6.3: Logical access reviews not performed quarterly as required — last review was 9 months prior",
+          "Control CC7.2: Intrusion detection alerts not reviewed within SLA for 3 incidents during period",
+          "Control A1.1: Availability SLA breached twice during review period — no root cause analysis documented"
+        ],
+        "encryption_at_rest": "AES-128",
+        "encryption_in_transit": "TLS 1.2",
+        "mfa_required": false,
+        "penetration_test_date": "2023-11-01",
+        "subprocessors": ["AWS", "Cloudflare", "PagerDuty", "DataDog", "Stripe"],
+        "data_classification": "Processes Confidential and Restricted data"
+      },
+      "security_questionnaire": {
+        "completed_date": "2024-10-01",
+        "incident_response_plan": true,
+        "last_incident": "2024-03-12",
+        "incident_description": "Unauthorized access to a staging environment — production unaffected, investigation closed",
+        "vulnerability_scanning": "Monthly",
+        "patch_management_sla": "Critical: 30 days, High: 60 days",
+        "background_checks": "US employees only",
+        "data_retention_policy": true,
+        "gdpr_compliant": true,
+        "osfi_b10_acknowledged": false,
+        "business_continuity_tested": "2023-06-01",
+        "insurance_coverage": "$5M cyber liability"
+      },
+      "contract": {
+        "effective_date": "2022-01-15",
+        "expiry_date": "2026-01-14",
+        "termination_notice_days": 180,
+        "right_to_audit": true,
+        "audit_frequency": "Once per year with 60 days notice",
+        "data_ownership_clause": true,
+        "liability_cap": "3 months fees",
+        "subprocessor_notification": "30 days",
+        "governing_law": "State of Delaware, USA",
+        "data_residency_clause": false,
+        "incident_notification_hours": 72,
+        "key_concerns": [
+          "Liability cap of 3 months fees is below organizational standard of 12 months",
+          "No data residency clause — data may move outside Canada without notice",
+          "Governing law is Delaware — Canadian privacy law enforcement may be limited"
+        ]
+      }
+    },
+    {
+      "vendor_id": "V-2002",
+      "name": "Meridian Analytics",
+      "category": "Data Analytics Platform",
+      "tier": "Tier 2",
+      "risk_level": "MEDIUM",
+      "last_reviewed": "2025-01-10",
+      "data_residency": "Canada (Toronto)",
+      "soc2": {
+        "report_date": "2025-01-01",
+        "type": "Type II",
+        "auditor": "KPMG",
+        "period": "Jul 2024 - Dec 2024",
+        "trust_principles": ["Security", "Confidentiality", "Processing Integrity"],
+        "exceptions": [
+          "Control CC8.1: One change was deployed without required peer review approval — isolated incident"
+        ],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "mfa_required": true,
+        "penetration_test_date": "2024-09-15",
+        "subprocessors": ["Azure Canada", "Snowflake"],
+        "data_classification": "Processes Confidential data"
+      },
+      "security_questionnaire": {
+        "completed_date": "2025-01-15",
+        "incident_response_plan": true,
+        "last_incident": null,
+        "incident_description": null,
+        "vulnerability_scanning": "Weekly",
+        "patch_management_sla": "Critical: 7 days, High: 30 days",
+        "background_checks": "All employees and contractors",
+        "data_retention_policy": true,
+        "gdpr_compliant": true,
+        "osfi_b10_acknowledged": true,
+        "business_continuity_tested": "2024-11-01",
+        "insurance_coverage": "$10M cyber liability"
+      },
+      "contract": {
+        "effective_date": "2023-06-01",
+        "expiry_date": "2026-05-31",
+        "termination_notice_days": 90,
+        "right_to_audit": true,
+        "audit_frequency": "Once per year with 30 days notice",
+        "data_ownership_clause": true,
+        "liability_cap": "12 months fees",
+        "subprocessor_notification": "14 days",
+        "governing_law": "Ontario, Canada",
+        "data_residency_clause": true,
+        "incident_notification_hours": 24,
+        "key_concerns": [
+          "Penetration test is 18 months old — approaching 6-month refresh threshold",
+          "Single SOC 2 exception noted — low severity but warrants follow-up"
+        ]
+      }
+    },
+    {
+      "vendor_id": "V-2003",
+      "name": "Fortis Identity",
+      "category": "Identity & Access Management",
+      "tier": "Tier 1",
+      "risk_level": "LOW",
+      "last_reviewed": "2025-02-20",
+      "data_residency": "Canada (Montreal, Toronto)",
+      "soc2": {
+        "report_date": "2025-02-01",
+        "type": "Type II",
+        "auditor": "PwC",
+        "period": "Aug 2024 - Jan 2025",
+        "trust_principles": ["Security", "Availability", "Confidentiality", "Privacy"],
+        "exceptions": [],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "mfa_required": true,
+        "penetration_test_date": "2024-12-01",
+        "subprocessors": ["AWS Canada", "Okta"],
+        "data_classification": "Processes Restricted data"
+      },
+      "security_questionnaire": {
+        "completed_date": "2025-02-25",
+        "incident_response_plan": true,
+        "last_incident": null,
+        "incident_description": null,
+        "vulnerability_scanning": "Continuous",
+        "patch_management_sla": "Critical: 24 hours, High: 7 days",
+        "background_checks": "All employees and contractors",
+        "data_retention_policy": true,
+        "gdpr_compliant": true,
+        "osfi_b10_acknowledged": true,
+        "business_continuity_tested": "2025-01-15",
+        "insurance_coverage": "$25M cyber liability",
+        "iso27001_certified": true
+      },
+      "contract": {
+        "effective_date": "2024-01-01",
+        "expiry_date": "2027-12-31",
+        "termination_notice_days": 90,
+        "right_to_audit": true,
+        "audit_frequency": "Twice per year with 14 days notice",
+        "data_ownership_clause": true,
+        "liability_cap": "24 months fees",
+        "subprocessor_notification": "7 days",
+        "governing_law": "Ontario, Canada",
+        "data_residency_clause": true,
+        "incident_notification_hours": 4,
+        "key_concerns": []
+      }
+    },
+    {
+      "vendor_id": "V-2004",
+      "name": "GlobalPay Processing",
+      "category": "Payment Processing",
+      "tier": "Tier 1",
+      "risk_level": "HIGH",
+      "last_reviewed": "2024-07-01",
+      "data_residency": "US (Virginia), EU (Ireland)",
+      "soc2": {
+        "report_date": "2024-06-01",
+        "type": "Type I",
+        "auditor": "Ernst & Young",
+        "period": "Point-in-time: May 2024",
+        "trust_principles": ["Security"],
+        "exceptions": [
+          "Control CC6.1: Password complexity requirements not enforced for legacy admin accounts",
+          "Control CC6.6: Remote access policy not updated to reflect current VPN configuration",
+          "Control CC9.2: Third-party risk assessments not completed for 4 of 12 subprocessors"
+        ],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.2",
+        "mfa_required": true,
+        "penetration_test_date": "2023-08-01",
+        "subprocessors": ["AWS", "GCP", "Azure", "Visa Direct", "Mastercard Send", "Plaid", "Stripe", "Twilio", "SendGrid", "MongoDB Atlas", "Elastic", "Splunk"],
+        "data_classification": "Processes Restricted and Regulated data (PCI-DSS)"
+      },
+      "security_questionnaire": {
+        "completed_date": "2024-07-15",
+        "incident_response_plan": true,
+        "last_incident": "2024-01-08",
+        "incident_description": "DDoS attack caused 4-hour service degradation — mitigation controls triggered, no data exfiltration",
+        "vulnerability_scanning": "Monthly",
+        "patch_management_sla": "Critical: 14 days, High: 60 days",
+        "background_checks": "US and EU employees only",
+        "data_retention_policy": true,
+        "gdpr_compliant": true,
+        "osfi_b10_acknowledged": false,
+        "business_continuity_tested": "2023-12-01",
+        "insurance_coverage": "$15M cyber liability"
+      },
+      "contract": {
+        "effective_date": "2021-03-01",
+        "expiry_date": "2025-02-28",
+        "termination_notice_days": 365,
+        "right_to_audit": false,
+        "audit_frequency": null,
+        "data_ownership_clause": false,
+        "liability_cap": "1 month fees",
+        "subprocessor_notification": "90 days",
+        "governing_law": "State of New York, USA",
+        "data_residency_clause": false,
+        "incident_notification_hours": 72,
+        "key_concerns": [
+          "CONTRACT EXPIRED — expiry was Feb 28 2025, operating on expired terms",
+          "No right to audit — no mechanism to independently verify controls",
+          "No data ownership clause — data rights ambiguous on termination",
+          "Liability cap of 1 month fees is significantly below standard",
+          "365-day termination notice creates exit risk",
+          "Penetration test is over 18 months old — critically overdue"
+        ]
+      }
+    },
+    {
+      "vendor_id": "V-2005",
+      "name": "NorthStar Document Management",
+      "category": "Document Management",
+      "tier": "Tier 3",
+      "risk_level": "LOW",
+      "last_reviewed": "2025-03-01",
+      "data_residency": "Canada (Toronto)",
+      "soc2": {
+        "report_date": "2025-01-15",
+        "type": "Type II",
+        "auditor": "BDO Canada",
+        "period": "Jul 2024 - Dec 2024",
+        "trust_principles": ["Security", "Confidentiality"],
+        "exceptions": [],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "mfa_required": true,
+        "penetration_test_date": "2024-10-01",
+        "subprocessors": ["Azure Canada"],
+        "data_classification": "Processes Internal and Confidential data"
+      },
+      "security_questionnaire": {
+        "completed_date": "2025-03-05",
+        "incident_response_plan": true,
+        "last_incident": null,
+        "incident_description": null,
+        "vulnerability_scanning": "Weekly",
+        "patch_management_sla": "Critical: 7 days, High: 30 days",
+        "background_checks": "All employees",
+        "data_retention_policy": true,
+        "gdpr_compliant": true,
+        "osfi_b10_acknowledged": true,
+        "business_continuity_tested": "2024-12-01",
+        "insurance_coverage": "$5M cyber liability"
+      },
+      "contract": {
+        "effective_date": "2024-06-01",
+        "expiry_date": "2027-05-31",
+        "termination_notice_days": 60,
+        "right_to_audit": true,
+        "audit_frequency": "Once per year with 30 days notice",
+        "data_ownership_clause": true,
+        "liability_cap": "12 months fees",
+        "subprocessor_notification": "14 days",
+        "governing_law": "Ontario, Canada",
+        "data_residency_clause": true,
+        "incident_notification_hours": 24,
+        "key_concerns": []
+      }
+    }
+  ]
+}
