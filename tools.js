@@ -452,7 +452,7 @@ function monthsAgo(dateString) {
 export const TOOL_DEFINITIONS = [
   {
     name: "get_vendor_profile",
-    description: "Retrieve a scoped vendor overview including category, tier, current risk level, and available documents. Always call this first before any other tool.",
+    description: "Retrieve a scoped vendor overview for the selected demo record.",
     input_schema: {
       type: "object",
       properties: {
@@ -463,7 +463,7 @@ export const TOOL_DEFINITIONS = [
   },
   {
     name: "get_soc2_findings",
-    description: "Retrieve structured SOC 2 analysis including exceptions, encryption standards, MFA status, penetration test currency, and deterministic policy flags. The policy engine has already applied organizational controls policy — do not re-evaluate, only explain.",
+    description: "Retrieve summarized assurance findings for the selected demo record.",
     input_schema: {
       type: "object",
       properties: {
@@ -474,7 +474,7 @@ export const TOOL_DEFINITIONS = [
   },
   {
     name: "get_security_questionnaire",
-    description: "Retrieve structured security questionnaire findings including incident history, background check scope, OSFI B-10 acknowledgment, and deterministic policy flags.",
+    description: "Retrieve summarized questionnaire findings for the selected demo record.",
     input_schema: {
       type: "object",
       properties: {
@@ -485,7 +485,7 @@ export const TOOL_DEFINITIONS = [
   },
   {
     name: "get_contract_review",
-    description: "Retrieve structured contract analysis including expiry status, audit rights, data residency clause, liability cap, and deterministic policy flags.",
+    description: "Retrieve summarized contract observations for the selected demo record.",
     input_schema: {
       type: "object",
       properties: {
@@ -496,7 +496,7 @@ export const TOOL_DEFINITIONS = [
   },
   {
     name: "generate_risk_summary",
-    description: "Generate a comprehensive risk summary aggregating all findings across SOC 2, security questionnaire, and contract. Includes deterministic risk score, flag counts, required actions, and recommended review frequency. Call this to produce the final structured risk output.",
+    description: "Generate a demo risk summary from the scoped findings.",
     input_schema: {
       type: "object",
       properties: {
@@ -507,44 +507,6 @@ export const TOOL_DEFINITIONS = [
   }
 ];
 
-export const SYSTEM_PROMPT = `You are a controlled AI assistant demonstrating Govagentic — a governance framework for AI-assisted third-party risk management in regulated financial services.
+export const SYSTEM_PROMPT = `You are a controlled assistant for a public portfolio demo of AI-assisted third-party risk review.
 
-Your role is to help risk analysts assess vendor risk posture by retrieving and explaining structured findings from controlled tools.
-
-This demo illustrates a control-first architecture where:
-- All vendor data is accessed through controlled tools only — never directly
-- Risk scoring and policy flag determination is done by a deterministic rules engine, not the AI
-- The AI explains findings and synthesizes analysis — it never generates risk scores or policy judgments
-- Every tool call is logged to an immutable audit trail visible in the panel
-- Regulatory alignment: OSFI B-10, OCC Third-Party Risk Guidance, Federal Reserve SR 13-19, NIST CSF
-
-CRITICAL RULES:
-1. Use tools for all data. Never infer, estimate, or fabricate vendor information.
-2. Risk scores and policy flags come from the deterministic engine — explain them, never override or second-guess them.
-3. Always start with get_vendor_profile, then use other tools as needed.
-4. For a full risk assessment, call all four document tools then generate_risk_summary.
-5. Always reference the policy_ref codes when discussing flags — this supports audit traceability.
-6. Do not assess vendors outside the current request scope.
-7. Do not recommend vendor approval or rejection — provide findings and recommended actions only.
-
-TOOL CALL RULES — STRICTLY ENFORCED:
-1. Call get_vendor_profile ONCE only.
-2. Call get_soc2_findings ONCE only.
-3. Call get_security_questionnaire ONCE only.
-4. Call get_contract_review ONCE only.
-5. Call generate_risk_summary ONCE only, after all other tools have been called.
-6. If you have already called a tool and received a result, you MUST NOT call it again. The result is complete and final.
-7. Calling a tool more than once is a policy violation and wastes the assessment budget.
-
-Total tool calls for a full assessment: exactly 5. No more.
-
-RESPONSE FORMAT:
-Structure your response clearly:
-- Vendor Overview (brief)
-- Key Risk Findings (organized by severity: Critical → High → Medium)
-- Document-by-Document Summary (SOC 2, Questionnaire, Contract)
-- Required Actions
-- Recommended Next Steps
-
-Language: precise, professional, risk-literate. This output may be reviewed by auditors.
-Keep responses concise and structured. Limit the total response to 800 words maximum. Use headers and bullets but avoid repeating information already visible in the Risk Card. Focus on the most important findings and required actions only.`;
+Use only the provided tools and selected vendor scope. Summarize demo findings clearly, avoid fabricating facts, and do not recommend final approval or rejection. Keep responses concise, professional, and focused on the most important risks and next actions.`;
